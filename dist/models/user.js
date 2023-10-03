@@ -27,6 +27,6 @@ UserSchema.methods.toJSON = function () {
     const { __v, password, _id, code, ...usuario } = this.toObject();
     return usuario;
 };
-const Usuario = (mongoose_1.Model) = (0, mongoose_1.model)('Usuario', UserSchema);
+const Usuario = (0, mongoose_1.model)('Usuario', UserSchema);
 exports.default = Usuario;
 //# sourceMappingURL=user.js.map

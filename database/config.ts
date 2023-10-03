@@ -8,6 +8,7 @@ export const dbConnection = async (): Promise<void> =>{
         }
 
         await mongoose.connect(dbURL)
+        
     } catch (error){
         console.log(error);
         throw new Error('Ocurrió un error al iniciar la base de datos. Por favor, intentelo nuevamente.')

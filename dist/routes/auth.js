@@ -15,7 +15,14 @@ router.post("/register", [
 router.post('/login', [
     (0, express_validator_1.check)("email", 'El email es obligatorio.').not().isEmpty(),
     (0, express_validator_1.check)("email", 'El email no es válido.').isEmail(),
-    (0, express_validator_1.check)("password", 'La contraseña es obligatoria y debe contener 8 caracteres como minimo.').isLength({ min: 8 })
+    (0, express_validator_1.check)("password", 'La contraseña es obligatoria y debe contener 8 caracteres como minimo.').isLength({ min: 8 }),
+    errorRecolector_1.errorRecolector
 ], auth_1.login);
+router.patch('/verify', [
+    (0, express_validator_1.check)("email", 'El email es obligatorio.').not().isEmpty(),
+    (0, express_validator_1.check)("email", 'El email no es válido.').isEmail(),
+    (0, express_validator_1.check)("code").not().isEmpty(),
+    errorRecolector_1.errorRecolector
+], auth_1.verifyUser);
 exports.default = router;
 //# sourceMappingURL=auth.js.map

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.login = exports.register = void 0;
+exports.verifyUser = exports.login = exports.register = void 0;
 const user_1 = __importDefault(require("../models/user"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const constants_1 = require("../helpers/constants");
@@ -60,4 +60,39 @@ const login = async (req, res) => {
     }
 };
 exports.login = login;
+const verifyUser = async (req, res) => {
+    const { email, code } = req.body;
+    try {
+        const usuario = await user_1.default.findOne({ email });
+        if (!usuario) {
+            res.status(404).json({
+                msg: 'El usuario no se encuntra en la base de datos.'
+            });
+            return;
+        }
+        if (usuario.verified) {
+            res.status(400).json({
+                msg: 'El usuario ya fue verificado.'
+            });
+            return;
+        }
+        if (code !== usuario.code) {
+            res.status(401).json({
+                msg: 'El codigo ingresado no es válido. Por favor, intentelo nuevamente.'
+            });
+            return;
+        }
+        await user_1.default.findOneAndUpdate({ email }, { verified: true });
+        res.status(200).json({
+            msg: 'El usuario fue verificado correctamente. Bienvenido a Spaceship Agency 👨‍🚀.'
+        });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({
+            msg: 'Ocurrió un error en el servidor. Por favor, intentelo nuevamente.'
+        });
+    }
+};
+exports.verifyUser = verifyUser;
 //# sourceMappingURL=auth.js.map

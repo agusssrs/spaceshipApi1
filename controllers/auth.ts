@@ -70,3 +70,48 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         })
     }
 }
+
+export const verifyUser = async (req: Request, res: Response) => {
+    const{email, code} = req.body
+
+    try {
+        const usuario = await Usuario.findOne({email})
+
+        if(!usuario){
+            res.status(404).json({
+                msg:'El usuario no se encuntra en la base de datos.'
+            });
+            return
+        }
+
+        if(usuario.verified){
+            res.status(400).json({
+                msg:'El usuario ya fue verificado.'
+            })
+            return
+        }
+
+        if(code !== usuario.code){
+            res.status(401).json({
+                msg: 'El codigo ingresado no es válido. Por favor, intentelo nuevamente.'
+            })
+            return
+        }
+
+        await Usuario.findOneAndUpdate(
+            {email},
+            {verified:true}
+        )
+
+        res.status(200).json({
+            msg:'El usuario fue verificado correctamente. Bienvenido a Spaceship Agency 👨‍🚀.'
+        })
+
+    } catch (error){
+        console.log(error);
+        res.status(500).json({
+            msg:'Ocurrió un error en el servidor. Por favor, intentelo nuevamente.'
+        })
+        
+    }
+}

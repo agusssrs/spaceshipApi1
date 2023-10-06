@@ -4,7 +4,7 @@ interface IItems{
     id: Number;
     brand: String;
     model: String;
-    km: Number;
+    km: String;
     year: Number;
     price: Number;
     prePurchase: Number;
@@ -47,7 +47,7 @@ const OrderSchema = new Schema<IOrder>({
         type:[{
             id:{
                 type:Number,
-                required:true
+                required:true,
             },
 
             brand:{

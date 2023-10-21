@@ -21,6 +21,7 @@ router.post('/', [
     (0, express_validator_1.check)("prePurchase", 'El precio de reserva es obligatorio.').not().isEmpty(),
     (0, express_validator_1.check)("total", 'El precio total es obligatorio.').not().isEmpty(),
     (0, express_validator_1.check)("items", 'El array de items es obligatorio.').not().isEmpty(),
+    (0, express_validator_1.check)("finishOrder", "Los detalles para finalizar la reserva son obligatorios.").not().isEmpty(),
     errorRecolector_1.errorRecolector
 ], orders_1.createOrder);
 exports.default = router;

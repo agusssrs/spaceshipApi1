@@ -63,6 +63,24 @@ const OrderSchema = new mongoose_1.Schema({
     total: {
         type: Number,
         required: true
+    },
+    finishOrder: {
+        email: {
+            type: String,
+            required: true
+        },
+        cellphone: {
+            type: String,
+            required: true
+        },
+        address: {
+            type: String,
+            required: true
+        },
+        cardNumber: {
+            type: String,
+            required: true
+        },
     }
 });
 const Order = (0, mongoose_1.model)('Order', OrderSchema);

@@ -1,5 +1,12 @@
 import { Model, Schema, Types, model } from "mongoose";
 
+interface IFinishOrder{
+    email: String;
+    cellphone: String;
+    address: String;
+    cardNumber: String;
+}
+
 interface IItems{
     id: Number;
     brand: String;
@@ -19,6 +26,7 @@ export interface IOrder {
     items: IItems[];
     status: String;
     total: Number;
+    finishOrder: IFinishOrder;
 }
 
 const OrderSchema = new Schema<IOrder>({
@@ -96,6 +104,28 @@ const OrderSchema = new Schema<IOrder>({
     total:{
         type:Number,
         required:true
+    },
+
+    finishOrder:{
+        email: {
+            type: String,
+            required: true
+        },
+
+        cellphone: {
+            type: String,
+            required: true
+        },
+
+        address: {
+            type: String,
+            required: true
+        },
+
+        cardNumber: {
+            type: String,
+            required: true
+        },
     }
 });
 

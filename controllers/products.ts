@@ -4,7 +4,7 @@ import Product from '../models/products'
 
 export const getProducts = async (req: Request, res: Response) => {
     try {
-        const products = await Product.findById('id');
+        const products = await Product.findById(req.body.id);
         res.status(200).json(products);
     } catch (error) {
         res.status(500).json({msg: 'Se ha producido un error.'});

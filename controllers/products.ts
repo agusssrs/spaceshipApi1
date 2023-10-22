@@ -4,7 +4,11 @@ import Product from '../models/products'
 
 export const getProducts = async (req: Request, res: Response) => {
     try {
-        const products = await Product.find(req.body.id);
+        const productId = req.body.id;
+
+        const consulta = productId ? {id: productId} : {};
+
+        const products = await Product.find(consulta);
         res.status(200).json(products);
     } catch (error) {
         res.status(500).json({msg: 'Se ha producido un error.'});

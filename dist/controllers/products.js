@@ -7,7 +7,9 @@ exports.createProduct = exports.getProducts = void 0;
 const products_1 = __importDefault(require("../models/products"));
 const getProducts = async (req, res) => {
     try {
-        const products = await products_1.default.find();
+        const productId = req.body.id;
+        const consulta = productId ? { id: productId } : {};
+        const products = await products_1.default.find(consulta);
         res.status(200).json(products);
     }
     catch (error) {

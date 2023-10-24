@@ -19,7 +19,6 @@ export const getOrders = async (req: Request, res: Response) => {
 export const createOrder = async (req: Request, res: Response) => {
     const userID: ObjectId = req.body.confirmedUser._id;
     const orderData: IOrder = req.body
-    const prePurchase : IOrder = req.body.items.type.prePurchase
 
 
     const data = {
@@ -27,7 +26,6 @@ export const createOrder = async (req: Request, res: Response) => {
         user: userID,
         createdAt: new Date(),
         status:"Paid",
-        total: prePurchase
     }
 
     const order = new Order(data)

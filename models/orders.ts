@@ -41,15 +41,15 @@ const OrderSchema = new Schema<IOrder>({
         required: true
     },
 
-    price:{
-        type: Number,
-        required:true
-    },
+    // price:{
+    //     type: Number,
+    //     required:true
+    // },
 
-    prePurchase:{
-        type: Number,
-        required:true
-    },
+    // prePurchase:{
+    //     type: Number,
+    //     required:true
+    // },
 
     items:{
         type:[{

@@ -101,10 +101,10 @@ const OrderSchema = new Schema<IOrder>({
         required:true
     },
 
-    total:{
-        type:Number,
-        required:true
-    },
+    // total:{
+    //     type:Number,
+    //     required:true
+    // },
 
     finishOrder:{
         email: {

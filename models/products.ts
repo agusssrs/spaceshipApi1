@@ -44,7 +44,7 @@ const ProductSchema = new Schema <IProduct>({
 
     prePurchase:{
         type: Number,
-        required: true
+        required: false
     },
 
     carImg:{

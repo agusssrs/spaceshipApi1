@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { ObjectId } from "mongoose";
 import Order, { IOrder } from '../models/orders'
+import { header } from "express-validator";
 
 export const getOrders = async (req: Request, res: Response) => {
     const userID: ObjectId = req.body.confirmedUser._id;
@@ -19,7 +20,7 @@ export const getOrders = async (req: Request, res: Response) => {
 export const createOrder = async (req: Request, res: Response) => {
     const userID: ObjectId = req.body.confirmedUser._id;
     const orderData: IOrder = req.body
-
+    header('Access-Control-Allow-Origin: *')
 
     const data = {
         ...orderData,

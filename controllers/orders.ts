@@ -20,7 +20,6 @@ export const getOrders = async (req: Request, res: Response) => {
 export const createOrder = async (req: Request, res: Response) => {
     const userID: ObjectId = req.body.confirmedUser._id;
     const orderData: IOrder = req.body
-    header('Access-Control-Allow-Origin: *')
 
     const data = {
         ...orderData,

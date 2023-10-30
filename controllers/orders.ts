@@ -28,7 +28,13 @@ export const createOrder = async (req: Request, res: Response) => {
         status:"Paid",
     }
 
+    console.log(data);
+    
+
     const order = new Order(data)
+
+    console.log(order);
+    
 
     await order.save();
 

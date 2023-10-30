@@ -14,7 +14,7 @@ export interface IProduct {
 const ProductSchema = new Schema <IProduct>({
     id:{
         type: Number,
-        required: true
+        required: false
     },
 
     brand:{

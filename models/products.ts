@@ -34,7 +34,7 @@ const ProductSchema = new Schema <IProduct>({
 
     year:{
         type: Number,
-        required: true
+        required: false
     },
 
     price:{

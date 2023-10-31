@@ -27,14 +27,8 @@ export const createOrder = async (req: Request, res: Response) => {
         createdAt: new Date(),
         status:"Paid",
     }
-
-    console.log(data);
-    
-
-    const order = new Order(data)
-
-    console.log(order);
-    
+   
+    const order = new Order(data)   
 
     await order.save();
 

@@ -6,9 +6,7 @@ export const getProducts = async (req: Request, res: Response) => {
     try {
         const productId = req.body.id;
 
-        // const consulta = productId ? {id: productId} : {};
-
-        const consulta = productId
+        const consulta = productId ? {id: productId} : {};
 
         const products = await Product.find(consulta);
         res.status(200).json(products);

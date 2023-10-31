@@ -41,16 +41,6 @@ const OrderSchema = new Schema<IOrder>({
         required: true
     },
 
-    // price:{
-    //     type: Number,
-    //     required:true
-    // },
-
-    // prePurchase:{
-    //     type: Number,
-    //     required:true
-    // },
-
     items:{
         type:[{
             id:{
@@ -101,10 +91,6 @@ const OrderSchema = new Schema<IOrder>({
         required:true
     },
 
-    // total:{
-    //     type:Number,
-    //     required:true
-    // },
 
     finishOrder:{
         email: {

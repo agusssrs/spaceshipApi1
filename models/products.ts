@@ -53,6 +53,12 @@ const ProductSchema = new Schema <IProduct>({
     }
 });
 
+ProductSchema.methods.toJSON = function () {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { __v, _id, ...product } = this.toObject()
+    return product
+}
+
 const Product: Model<IProduct> = model<IProduct>('Product', ProductSchema);
 
 export default Product;

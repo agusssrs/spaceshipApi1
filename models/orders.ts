@@ -115,6 +115,12 @@ const OrderSchema = new Schema<IOrder>({
     }
 });
 
+OrderSchema.methods.toJSON = function () {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { __v, _id, ...order } = this.toObject()
+    return order
+}
+
 const Order: Model<IOrder> = model<IOrder>('Order', OrderSchema);
 
 export default Order;

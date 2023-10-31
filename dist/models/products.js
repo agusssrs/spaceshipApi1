@@ -4,7 +4,7 @@ const mongoose_1 = require("mongoose");
 const ProductSchema = new mongoose_1.Schema({
     id: {
         type: Number,
-        required: true
+        required: false
     },
     brand: {
         type: String,
@@ -20,7 +20,7 @@ const ProductSchema = new mongoose_1.Schema({
     },
     year: {
         type: Number,
-        required: true
+        required: false
     },
     price: {
         type: Number,
@@ -28,7 +28,7 @@ const ProductSchema = new mongoose_1.Schema({
     },
     prePurchase: {
         type: Number,
-        required: true
+        required: false
     },
     carImg: {
         type: String,

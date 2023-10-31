@@ -8,7 +8,8 @@ const products_1 = __importDefault(require("../models/products"));
 const getProducts = async (req, res) => {
     try {
         const productId = req.body.id;
-        const consulta = productId ? { id: productId } : {};
+        // const consulta = productId ? {id: productId} : {};
+        const consulta = productId;
         const products = await products_1.default.find(consulta);
         res.status(200).json(products);
     }

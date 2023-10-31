@@ -11,14 +11,14 @@ const OrderSchema = new mongoose_1.Schema({
         ref: 'Usuario',
         required: true
     },
-    price: {
-        type: Number,
-        required: true
-    },
-    prePurchase: {
-        type: Number,
-        required: true
-    },
+    // price:{
+    //     type: Number,
+    //     required:true
+    // },
+    // prePurchase:{
+    //     type: Number,
+    //     required:true
+    // },
     items: {
         type: [{
                 id: {
@@ -60,10 +60,10 @@ const OrderSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
-    total: {
-        type: Number,
-        required: true
-    },
+    // total:{
+    //     type:Number,
+    //     required:true
+    // },
     finishOrder: {
         email: {
             type: String,

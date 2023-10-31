@@ -18,8 +18,8 @@ router.post('/', [
     validateJWT_1.default,
     validateVerified_1.isVerified,
     (0, express_validator_1.check)("price", 'El precio es obligatorio.').not().isEmpty(),
-    (0, express_validator_1.check)("prePurchase", 'El precio de reserva es obligatorio.').not().isEmpty(),
-    (0, express_validator_1.check)("total", 'El precio total es obligatorio.').not().isEmpty(),
+    // check("prePurchase", 'El precio de reserva es obligatorio.').not().isEmpty(),
+    // check("total", 'El precio total es obligatorio.').not().isEmpty(),
     (0, express_validator_1.check)("items", 'El array de items es obligatorio.').not().isEmpty(),
     (0, express_validator_1.check)("finishOrder", "Los detalles para finalizar la reserva son obligatorios.").not().isEmpty(),
     errorRecolector_1.errorRecolector

@@ -23,9 +23,11 @@ const createOrder = async (req, res) => {
         ...orderData,
         user: userID,
         createdAt: new Date(),
-        status: "Paid"
+        status: "Paid",
     };
+    console.log(data);
     const order = new orders_1.default(data);
+    console.log(order);
     await order.save();
     res.status(201).json({
         order
